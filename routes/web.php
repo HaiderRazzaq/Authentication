@@ -1,10 +1,15 @@
 <?php
 
+use App\Http\Controllers\homebladecontroller;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('front')->name('front.')->group(function () {
+    route::get('/', homebladecontroller::class)->name('index');
 });
 
 Route::get('/dashboard', function () {
@@ -17,4 +22,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
