@@ -11,6 +11,6 @@ class homebladecontroller extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('front.index');
+        return view('front.home');
     }
 }
