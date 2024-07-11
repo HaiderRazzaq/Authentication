@@ -10,6 +10,7 @@ Route::get('/', function () {
 
 Route::prefix('front')->name('front.')->group(function () {
     route::get('/', homebladecontroller::class)->name('index');
+    route::view('/login','front.auth.login')->name('login');
 });
 
 Route::get('/dashboard', function () {
