@@ -12,6 +12,7 @@ Route::prefix('front')->name('front.')->group(function () {
     route::get('/', homebladecontroller::class)->name('index');
     route::view('/login', 'front.auth.login')->name('login');
     route::view('/register', 'front.auth.register')->name('register');
+    route::view('/forgot', 'front.auth.forgot')->name('forgot');
 });
 
 Route::get('/dashboard', function () {
