@@ -28,13 +28,14 @@
                                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
 
                             </div>
+
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="email" name="email"
                                     :value="old('email')" placeholder="Enter your email" />
                                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
-
                             </div>
+
                             <div class="mb-3 form-password-toggle">
                                 <label class="form-label" for="password">Password</label>
                                 <div class="input-group input-group-merge">
@@ -42,10 +43,10 @@
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                         aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
-
                                 </div>
+                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
                             </div>
+
                             <div class="mb-3 form-password-toggle">
                                 <label class="form-label" for="password_confirmation">Confirm Password</label>
                                 <div class="input-group input-group-merge">
@@ -54,9 +55,8 @@
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                         aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-
                                 </div>
+                                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                             </div>
 
                             {{-- <div class="mb-3">
