@@ -1,8 +1,13 @@
 <?php
 
-use App\Http\Controllers\homebladecontroller;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RelationController;
+use App\Http\Controllers\homebladecontroller;
+
+route::prefix('relation')->group(function () {
+route::get('/user',[RelationController::class,'user']);
+});
 
 Route::get('/', function () {
     return view('welcome');
