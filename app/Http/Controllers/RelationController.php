@@ -14,8 +14,6 @@ class RelationController extends Controller
     }
     public function ApiLessons(){
         $lessons=Lesson::with('tags')->get();
-        foreach($lessons as $lesson){
-            dd( $lesson ). '<br>';
-        }
+        return $lessons;
     }
 }
