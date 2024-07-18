@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lesson;
 use Illuminate\Http\Request;
 
 class LessonApiController extends Controller
@@ -11,15 +12,8 @@ class LessonApiController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $lessons = Lesson::all();
+        return $lessons;
     }
 
     /**
@@ -35,15 +29,8 @@ class LessonApiController extends Controller
      */
     public function show(string $id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        $lesson = Lesson::findOrFail($id);
+        return $lesson;
     }
 
     /**
@@ -59,6 +46,12 @@ class LessonApiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $lesson = Lesson::find($id);
+        if ($lesson->delete()) {
+            return response()->json(['msg' => 'deleting was done']);
+        } else {
+            return response()->json(['msg' => 'deleting was fail']);
+        }
     }
+
 }
