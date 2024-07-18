@@ -17,4 +17,8 @@ class Lesson extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function Tags(){
+        return $this->belongsToMany(Tag::class);
+    }
 }
