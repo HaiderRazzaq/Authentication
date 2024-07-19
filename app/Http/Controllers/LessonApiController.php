@@ -22,10 +22,11 @@ class LessonApiController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        // return Lesson::create($data);
         if (Lesson::create($data)) {
-            return response()->json(['msg' => 'create new lesson was done ']);
-        }else {
-            return response()->json(['msg'=>'add new lesson was faild']);
+            return response()->json(['msg' => 'create new lesson was done ', 'data' => Lesson::create($data)]);
+        } else {
+            return response()->json(['msg' => 'add new lesson was faild']);
         }
     }
 
