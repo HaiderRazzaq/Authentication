@@ -44,7 +44,9 @@ class LessonApiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $lesson=Lesson::find($id);
+        $lesson->update($request->all());
+        return $lesson;
     }
 
     /**
