@@ -21,7 +21,12 @@ class LessonApiController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        $data = $request->all();
+        if (Lesson::create($data)) {
+            return response()->json(['msg' => 'create new lesson was done ']);
+        }else {
+            return response()->json(['msg'=>'add new lesson was faild']);
+        }
     }
 
     /**
