@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\LessonApiController;
-use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LessonApiController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -23,7 +24,8 @@ route::group(['prefix' => '/v1'], function () {
 Route::group(['prefix' => 'v1'], function () {
     route::get('/users', [UserController::class, 'index']);
     route::get('/users/{id}', [UserController::class, 'show']);
-    route::put('/users/{id}',[UserController::class,'update']);
-
-
+    // route::put('/users/{id}', [UserController::class, 'update']);
+    route::post('/users', [UserController::class, 'store']);
+    route::match(['put','patch'],'/users/{id}',[UserController::class,'update']);
+    route::delete('/users/{id}',[UserController::class,'destroy']);
 });
