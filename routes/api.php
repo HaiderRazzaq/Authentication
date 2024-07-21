@@ -18,3 +18,7 @@ route::group(['prefix' => '/v1'], function () {
     route::delete('/lessons/{id}', [LessonApiController::class, 'destroy']);
 
 });
+
+Route::prefix('users')->group(function () {
+route::get('/',[]);
+});
