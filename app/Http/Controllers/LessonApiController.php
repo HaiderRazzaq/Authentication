@@ -39,6 +39,11 @@ class LessonApiController extends Controller
         return $lesson;
     }
 
+    public function tags(string $id)
+    {
+        $lesson = Lesson::findOrFail($id)->Tags;
+        return $lesson;
+    }
     /**
      * Update the specified resource in storage.
      */
