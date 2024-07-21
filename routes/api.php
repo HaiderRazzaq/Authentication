@@ -23,6 +23,7 @@ route::group(['prefix' => '/v1'], function () {
 
 Route::group(['prefix' => 'v1'], function () {
     route::get('/users', [UserController::class, 'index']);
+    route::get('/users/{id}/lessons',[UserController::class,'lessons']);
     route::get('/users/{id}', [UserController::class, 'show']);
     // route::put('/users/{id}', [UserController::class, 'update']);
     route::post('/users', [UserController::class, 'store']);
