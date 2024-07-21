@@ -22,4 +22,5 @@ route::group(['prefix' => '/v1'], function () {
 
 Route::group(['prefix' => 'v1'], function () {
     route::get('/users', [UserController::class, 'index']);
+    route::get('/users/{id}', [UserController::class, 'show']);
 });
