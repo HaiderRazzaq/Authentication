@@ -12,7 +12,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users=User::All();
+        $users = User::All();
         return $users;
     }
 
@@ -29,7 +29,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $user=User::find($id);
+        $user = User::find($id);
         return $user;
     }
 
@@ -38,7 +38,9 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $user = User::find($id);
+        $user->update($request->all());
+        return $user;
     }
 
     /**
