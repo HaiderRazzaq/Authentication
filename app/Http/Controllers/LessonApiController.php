@@ -13,7 +13,7 @@ class LessonApiController extends Controller
     public function index()
     {
         $lessons = Lesson::all();
-        return $lessons;
+        return response()->json($lessons);
     }
 
     /**
@@ -36,22 +36,22 @@ class LessonApiController extends Controller
     public function show(string $id)
     {
         $lesson = Lesson::findOrFail($id);
-        return $lesson;
+        return response()->json($lesson);
     }
 
     public function tags(string $id)
     {
         $lesson = Lesson::findOrFail($id)->Tags;
-        return $lesson;
+        return response()->json($lesson);
     }
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        $lesson=Lesson::find($id);
+        $lesson = Lesson::find($id);
         $lesson->update($request->all());
-        return $lesson;
+        return response()->json($lesson);
     }
 
     /**
