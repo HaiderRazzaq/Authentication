@@ -22,10 +22,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data=$request->all();
-        $password=Hash::make($data['password']);
-        $data['password']=$password;
-        return User::create($data);
+        $data = $request->all();
+        $password = Hash::make($data['password']);
+        $data['password'] = $password;
+        return response()->json(User::create($data));
     }
 
     /**
@@ -34,7 +34,7 @@ class UserController extends Controller
     public function show(string $id)
     {
         $user = User::find($id);
-        return $user;
+        return response()->json($user);
     }
 
     /**
@@ -44,7 +44,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->update($request->all());
-        return $user;
+        return response()->json($user);
     }
 
     /**
@@ -56,7 +56,8 @@ class UserController extends Controller
         $user->delete();
     }
 
-    public function lessons($id){
-        return user::find($id)->lessons;
+    public function lessons($id)
+    {
+        return response()->json(user::find($id)->lessons);
     }
 }
